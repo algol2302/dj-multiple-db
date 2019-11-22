@@ -4,8 +4,8 @@
 Just pull and `docker-compose up`.
 
 ## Entrypoints:
-* `localhost:8000/csv` - to export all readers
-* `localhost:8000/api/v1/reader` - to get readers with these books
+* http://localhost:8000/csv - to export all readers
+* http://localhost:8000/api/v1/reader - to get readers with these books
 
 ## Design
 There are two databases: `default` and `replica`
@@ -24,9 +24,8 @@ it is very bad.
 
 * Migrations are very slow.
 * Api is not pretty. it is necessary to use nginx for static.
-* Random router isn't good. I think that better way use something 
-like https://github.com/jbalogh/django-multidb-router or others.  
-* There aren't any tests.
+* Random router isn't good. I think that better way is to use something 
+like https://github.com/jbalogh/django-multidb-router.
 
 ## Decisions
 * I think that replication should use on postgres level, 

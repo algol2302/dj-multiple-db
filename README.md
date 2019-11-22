@@ -5,7 +5,7 @@ Just pull and `docker-compose up`.
 
 ## Entrypoints:
 * `localhost:8000/csv` - to export all readers
-* `localhost:8000/api/v1/readers` - to get readers with these books
+* `localhost:8000/api/v1/reader` - to get readers with these books
 
 ## Design
 There are two databases: `default` and `replica`

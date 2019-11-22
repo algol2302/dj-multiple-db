@@ -1,0 +1,13 @@
+web/src/raw_files/*
+*__pycache__*
+.idea/
+venv/
+web/src/.coverage
+dev.env
+gitlub-runner-pubkey.txt
+prod.env
+celerybeat.pid
+celerybeat-schedule
+#local.env
+./db/master/
+./db/slave/

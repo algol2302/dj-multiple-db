@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+    master:
+        image: postgres:12-alpine
+        container_name: md_master
+        env_file:
+            - ./db/master.env
+        volumes:
+            - "./db/master:/var/lib/postgresql/data"
+        ports:
+            - "5432:5432"
+
+    slave:
+        image: postgres:12-alpine
+        container_name: md_slave
+        env_file:
+            - ./db/slave.env
+        volumes:
+            - "./db/slave:/var/lib/postgresql/data"
+        ports:
+            - "5433:5432"
+
+    backend: &BACKEND
+        image: backend
+        container_name: md_backend
+        env_file:
+            - local.env
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        command: bash /gunicorn_run.sh
+
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./backend/src:/app
+        #        restart: on-failure
+        depends_on:
+            - master
+            - slave

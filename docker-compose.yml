@@ -21,7 +21,7 @@ services:
         ports:
             - "5433:5432"
 
-    backend: &BACKEND
+    backend:
         image: backend
         container_name: md_backend
         env_file:
@@ -35,7 +35,6 @@ services:
             - "8000:8000"
         volumes:
             - ./backend/src:/app
-        #        restart: on-failure
         depends_on:
             - master
             - slave

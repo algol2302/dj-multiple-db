@@ -1,9 +1,9 @@
 import csv
 
-from django.core.serializers.python import Serializer
 from django.http import StreamingHttpResponse
 
 from bookreaders.models import Reader
+
 
 class Echo:
     """An object that implements just the write method of the file-like

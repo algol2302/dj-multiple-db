@@ -1,9 +1,9 @@
 # Dj-multiple-db
 
-## Start:
+## Start
 Just pull and `docker-compose up`.
 
-## Entrypoints:
+## Entrypoints
 * http://localhost:8000/csv - to export all readers
 * http://localhost:8000/api/v1/reader - to get readers with these books
 
@@ -13,7 +13,7 @@ Also, there are the most simple 'random'-router between databases to
 decrease load on app and increase performance. 
 Requests random get access for one from two databases. 
 
-## Problems: 
+## Problems
 * File `gunicorn_run.sh` contains:
 ```
 python manage.py migrate bookreaders 0001_initial
